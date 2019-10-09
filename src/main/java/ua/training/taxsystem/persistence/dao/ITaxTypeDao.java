@@ -1,4 +1,4 @@
-package ua.training.taxsystem.persistence;
+package ua.training.taxsystem.persistence.dao;
 
 import ua.training.taxsystem.persistence.entities.TaxType;
 

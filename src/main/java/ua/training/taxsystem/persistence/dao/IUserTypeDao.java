@@ -1,4 +1,4 @@
-package ua.training.taxsystem.persistence;
+package ua.training.taxsystem.persistence.dao;
 
 
 
