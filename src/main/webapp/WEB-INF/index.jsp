@@ -28,6 +28,8 @@
             <div class="col-sm-6 col-md-4">
                 <div class="card border-info text-center">
                     <div class="card-body">
+                        ${pageContext.session.getAttribute(Attributes.IS_SIGN_UP)}
+
                         <!-- signin/signout fragment -->
                         <c:choose>
                             <c:when test="${pageContext.session.getAttribute(Attributes.IS_SIGN_UP) eq true}">

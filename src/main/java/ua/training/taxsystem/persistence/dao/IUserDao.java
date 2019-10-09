@@ -7,6 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface IUserDao extends IDao<User> {
-    Optional<User> findUserByEmailAndPassword(String email, String password);
+    Optional<User> findByEmailAndPassword(String email, String password);
     List<User> findAllByUserTypeAndIdNotEqual(UserType userType, Long id);
 }
