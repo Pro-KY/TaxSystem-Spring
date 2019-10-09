@@ -1,7 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page import="ua.training.util.constans.Parameters" %>
-<%@ page import="ua.training.util.constans.Attributes" %>
-<%@ page import="ua.training.util.constans.Commands" %>
+<%@ page import="ua.training.taxsystem.util.constans.Parameters" %>
+<%@ page import="ua.training.taxsystem.util.constans.Attributes" %>
+<%@ page import="ua.training.taxsystem.util.constans.Commands" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="myTag" uri="/WEB-INF/datetag.tld" %>
 
