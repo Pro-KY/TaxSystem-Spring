@@ -24,5 +24,4 @@ public class Report {
     @OneToOne
     @JoinColumn(name = "tax_type_id")
     private TaxType taxType;
-
 }
