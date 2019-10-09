@@ -1,0 +1,47 @@
+#logo_icon, #user_icon {
+    padding-bottom: 20px;
+}
+
+#nav-item::selection {
+    color: #d3d9df;
+}
+
+#formWrapper {
+    display: block;
+}
+
+#refusal_cause_textfield {
+    display: none;
+}
+
+#inputFileWrapper {
+    display: none;
+}
+
+#organizationWrapper {
+    display: none;
+}
+
+#elementsAmountSelect {
+    padding-bottom: 10px;
+}
+
+.table-row{
+    cursor:pointer;
+}
+
+.table-row:hover {
+    background-color: #ebf1f7;
+}
+
+.title {
+     color: #acb2b8;
+ }
+
+/*.active {*/
+/*    background: #f00;*/
+/*}*/
+
+.main-bg-color {
+    background-color: #204aac;
+}
