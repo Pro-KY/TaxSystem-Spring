@@ -1,22 +1,16 @@
 package ua.training.taxsystem.persistence.dao;
 
 
+import org.springframework.data.domain.Page;
 import ua.training.taxsystem.persistence.entities.ReportApproval;
 import ua.training.taxsystem.persistence.entities.StateApproval;
 import ua.training.taxsystem.persistence.entities.User;
 
-import java.util.List;
-import java.util.Optional;
-
 public interface IReportApprovalDao extends IDao<ReportApproval> {
-    List<ReportApproval> getReportApprovalListByUserId(long pageSize, long offSet, long userId);
-    long countAllForUserById(Long userId);
-    long countAllByStateApproval(StateApproval stateApproval);
-    long countAllByStateApprovalAndInspector(StateApproval stateApproval, User user);
-    Optional<ReportApproval> findByIdJoinReportJoinInspector(Long id);
-    Optional<ReportApproval> findByIdJoinReportJoinUser(Long id);
-    Optional<ReportApproval> findByIdJoinUser(Long id);
-    List<ReportApproval> getReportApprovalListByStateApproval(long pageSize, long offSet, StateApproval stateApproval);
-    List<ReportApproval> getReportApprovalListByStateAndInspector(long pageSize, long offSet, StateApproval stateApproval, User inspector);
-
+    Page<ReportApproval> findAllByUser(User user, Page page);
+    Long countAllByUser(User user);
+    Long countAllByStateApproval(StateApproval stateApproval);
+    Long countAllByStateApprovalAndInspector(StateApproval stateApproval, User user);
+    Page<ReportApproval> findAllByStateApproval(StateApproval stateApproval, Page page);
+    Page<ReportApproval> findAllByStateApprovalAndInspector(StateApproval stateApproval, User inspector, Page page);
 }
