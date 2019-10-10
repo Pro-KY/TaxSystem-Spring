@@ -23,7 +23,7 @@ import java.util.Optional;
 @Log4j2
 @Controller
 @AllArgsConstructor
-@SessionAttributes({"user, isUserAuthorized, paginationInfo, approvalStateId"})
+@SessionAttributes({"user", "isUserAuthorized", "paginationInfo", "approvalStateId"})
 public class SignInController {
     private final SignInService signInService;
     private final ReportApprovalService reportApprovalService;
@@ -32,14 +32,24 @@ public class SignInController {
 
 
     @GetMapping("/")
-    public String showSignInPage() {
+    public String showSignInPage(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
         return viewProperties.getPATH_INDEX();
+    }
+
+
+    @PostMapping("/sendReport")
+    public ModelAndView sendReport(@SessionAttribute(required = false) User user) {
+        log.info("in session" + user.toString());
+
+        return null;
     }
 
     @PostMapping("/signIn")
     public ModelAndView signIn(@RequestParam("email") String email,
                                @RequestParam("password") String password,
-                               @SessionAttribute(required = false) PaginationDto paginationInfo) {
+                               @SessionAttribute(required = false) PaginationDto paginationInfo) { // Model model
         Optional<User> optionalUser = signInService.getAuthorizedUser(email, password);
         boolean isUserAuthorized = optionalUser.isPresent();
         final ModelAndView modelAndView = new ModelAndView();
@@ -49,6 +59,7 @@ public class SignInController {
 
         if (isUserAuthorized) {
             final User user = optionalUser.get();
+            log.info(user.toString());
             final String type = user.getUserType().getType();
             modelAndView.addObject(Attributes.USER, user);
             boolean isInspector = type.equals(UserTypes.INSPECTOR.getType());
@@ -62,7 +73,6 @@ public class SignInController {
                 modelAndView.addObject(Attributes.PAGINATION_INFO, updatedPaginationDto);
             }
 
-            modelAndView.setViewName(pagePath);
 
             String fragmentPath = isInspector ? viewProperties.getFRAGMENT_PATH_SENT_REPORTS() : viewProperties.getFRAGMENT_PATH_SEND_REPORT();
             modelAndView.addObject(Attributes.FRAGMENT_PATH, fragmentPath);
@@ -71,6 +81,7 @@ public class SignInController {
             modelAndView.addObject(Attributes.ALERT_MSG, true);
             modelAndView.addObject(Attributes.ALERT_MSG, messageProperties.getSIGNIN_ERROR());
         }
+        modelAndView.setViewName(pagePath);
 
         return modelAndView;
     }

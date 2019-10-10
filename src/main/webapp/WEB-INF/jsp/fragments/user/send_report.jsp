@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-md-4">
             <!-- form -->
-            <form>
+            <form action="${pageContext.request.contextPath}/sendReport" method="post">
                 <!-- report_type -->
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -64,7 +64,7 @@
                     <!-- load file -->
                 </div>
 
-                <input type="hidden" name="command" value="sendReport">
+<%--                <input type="hidden" name="command" value="sendReport">--%>
                 <input type="hidden" id="fileContentInput" name="${Parameters.REPORT_FILE_CONTENT}">
                 <button type="submit" class="btn btn-primary">${submitButton}</button>
             </form>
