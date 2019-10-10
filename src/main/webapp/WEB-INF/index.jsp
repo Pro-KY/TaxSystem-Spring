@@ -5,7 +5,7 @@
 
 <c:set var="language" value="${not empty sessionScope.language ? sessionScope.language : 'en'}" scope="session"/>
 <fmt:setLocale value="${language}"/>
-<fmt:setBundle basename="localization.pagecontent" var = "rb"/>
+<fmt:setBundle basename="localization.messages" var = "rb"/>
 
 <html>
 <head>
