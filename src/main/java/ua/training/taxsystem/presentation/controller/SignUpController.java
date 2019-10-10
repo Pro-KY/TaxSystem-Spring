@@ -9,20 +9,20 @@ import org.springframework.web.servlet.ModelAndView;
 import ua.training.taxsystem.util.constans.Attributes;
 import ua.training.taxsystem.util.properties.ViewProperties;
 
-import static ua.training.taxsystem.util.properties.ViewProperties.PATH_INDEX;
 
 @Log4j2
 @Controller
 @AllArgsConstructor
 @SessionAttributes(Attributes.IS_SIGN_UP)
 public class SignUpController {
+    ViewProperties viewProperties;
 
     @GetMapping("/getSignUpFragment")
     public ModelAndView showSignUpPage() {
         log.info("getSignUpFragment called");
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject(Attributes.IS_SIGN_UP, true);
-        modelAndView.setViewName(ViewProperties.getViewPath(PATH_INDEX));
+        modelAndView.setViewName(viewProperties.getPATH_INDEX());
         return modelAndView;
     }
 

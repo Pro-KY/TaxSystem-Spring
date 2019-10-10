@@ -1,8 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page contentType="text/html;charset=UTF-8"%>
-<jsp:useBean id="user" scope="session" type="ua.training.taxsystem.persistence.entities.User"/>
-taxsystem.
+<%--<jsp:useBean id="user" scope="session" type="ua.training.taxsystem.persistence.entities.User"/>--%>
+<jsp:useBean id="user" scope="session" class="ua.training.taxsystem.persistence.entities.User"/>
+
 <%@ page import="ua.training.taxsystem.util.constans.Attributes" %>
 <%@ page import="ua.training.taxsystem.util.constans.Commands" %>
 

@@ -17,5 +17,7 @@ public class StateApproval {
     @Column(name = "state")
     private String state;
 
-
+    public StateApproval(Long id) {
+        this.id = id;
+    }
 }

@@ -11,17 +11,17 @@ import java.util.List;
 public class PaginationDto implements Serializable {
     private static final Logger log = LogManager.getLogger(PaginationDto.class);
 
-    private Long currentPageIndex;
+    private Integer currentPageIndex;
     private Boolean isNextClicked;
     private Boolean isPreviousClicked;
     private String pageSize;
     private Long userId;
-    private static final long DEFAULT_START_INDEX = 0;
+    private static final int DEFAULT_START_INDEX = 0;
     private boolean isLeftButtonDisabled;
     private boolean isRightButtonDisabled;
-    private Long startPageIndex;
-    private Long endPageIndex;
-    private long allPagesAmount;
+    private Integer startPageIndex;
+    private Integer endPageIndex;
+    private int allPagesAmount;
 
     private List paginationList;
 
@@ -35,7 +35,7 @@ public class PaginationDto implements Serializable {
             selectedPageIndex = currentPageIndex.toString();
         }
 
-        this.currentPageIndex = (selectedPageIndex != null) ? Long.valueOf(selectedPageIndex) : DEFAULT_START_INDEX;
+        this.currentPageIndex = (selectedPageIndex != null) ? Integer.valueOf(selectedPageIndex) : DEFAULT_START_INDEX;
         this.isNextClicked = (isNextClicked != null) ? Boolean.valueOf(isNextClicked) : false;
         this.isPreviousClicked = (isPreviousClicked != null) ? Boolean.valueOf(isPreviousClicked) : false;
         this.pageSize = pageSize;
@@ -55,12 +55,12 @@ public class PaginationDto implements Serializable {
         this.isPreviousClicked = false;
     }
 
-    public Long getCurrentPageIndex() {
+    public Integer getCurrentPageIndex() {
         return currentPageIndex;
     }
 
-    public void setCurrentPageIndex(Long selectedPageIndex) {
-        this.currentPageIndex = selectedPageIndex;
+    public void setCurrentPageIndex(Integer currentPageIndex) {
+        this.currentPageIndex = currentPageIndex;
     }
 
     public Boolean getNextClicked() {
@@ -95,7 +95,11 @@ public class PaginationDto implements Serializable {
         this.userId = userId;
     }
 
-    public boolean getIsLeftButtonDisabled() {
+    public static int getDefaultStartIndex() {
+        return DEFAULT_START_INDEX;
+    }
+
+    public boolean isLeftButtonDisabled() {
         return isLeftButtonDisabled;
     }
 
@@ -103,7 +107,7 @@ public class PaginationDto implements Serializable {
         isLeftButtonDisabled = leftButtonDisabled;
     }
 
-    public boolean getIsRightButtonDisabled() {
+    public boolean isRightButtonDisabled() {
         return isRightButtonDisabled;
     }
 
@@ -111,27 +115,27 @@ public class PaginationDto implements Serializable {
         isRightButtonDisabled = rightButtonDisabled;
     }
 
-    public Long getStartPageIndex() {
+    public Integer getStartPageIndex() {
         return startPageIndex;
     }
 
-    public void setStartPageIndex(long startPageIndex) {
+    public void setStartPageIndex(Integer startPageIndex) {
         this.startPageIndex = startPageIndex;
     }
 
-    public Long getEndPageIndex() {
+    public Integer getEndPageIndex() {
         return endPageIndex;
     }
 
-    public void setEndPageIndex(long endPageIndex) {
+    public void setEndPageIndex(Integer endPageIndex) {
         this.endPageIndex = endPageIndex;
     }
 
-    public long getAllPagesAmount() {
+    public int getAllPagesAmount() {
         return allPagesAmount;
     }
 
-    public void setAllPagesAmount(long allPagesAmount) {
+    public void setAllPagesAmount(int allPagesAmount) {
         this.allPagesAmount = allPagesAmount;
     }
 
